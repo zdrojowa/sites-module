@@ -1,0 +1,3 @@
+ContentGroupController: Selene\Modules\SitesModule\Http\Controllers\ContentGroupController
+SiteTypeController: Selene\Modules\SitesModule\Http\Controllers\SiteTypeController
+SiteController: Selene\Modules\SitesModule\Http\Controllers\SiteController

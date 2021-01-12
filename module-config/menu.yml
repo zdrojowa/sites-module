@@ -1,0 +1,42 @@
+sites:
+  name: Strony
+  icon: mdi mdi-file-document-box-multiple
+  permission: SitesModule.sites
+  children:
+    list:
+      name: Lista
+      permission: SitesModule.sites
+      route: SitesModule::sites
+    add:
+      name: Dodaj
+      permission: SitesModule.sites.add
+      route: SitesModule::sites.create
+content-type-group:
+  name: Grupy treści
+  icon: mdi mdi-ungroup
+  permission: SitesModule.content-type-group
+  children:
+    list:
+      name: Lista
+      permission: SitesModule.content-type-group
+      route: SitesModule::content-type-group
+    add:
+      name: Dodaj
+      permission: SitesModule.content-type-group.add
+      route: SitesModule::content-type-group.create
+site-types:
+  name: Rodzaje stron
+  icon: mdi mdi-graph
+  permission: SitesModule.site-types
+  children:
+    list:
+      name: Lista
+      permission: SitesModule.site-types
+      route: SitesModule::site-types
+    add:
+      name: Dodaj
+      permission: SitesModule.site-types.add
+      route: SitesModule::site-types.create
+
+
+

@@ -1,0 +1,113 @@
+.site {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    flex-direction: column;
+    background-color: #191c20;
+
+    &.orderable {
+        &, * {
+            cursor: grab;
+        }
+    }
+
+    .additional-structure {
+        display: none;
+    }
+
+    .site {
+        padding-left: 35px;
+    }
+
+    &:not(.site--type) {
+        > div:nth-child(1) {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+
+        > div:nth-child(1) {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+    .show {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2d2e31;
+
+        border-right: none;
+        cursor: pointer;
+        .arrow {
+            position: relative;
+            height: 20px;
+            width: 16px;
+            div {
+                width: 6px;
+                height: 1px;
+                background-color: #fff;
+                position: absolute;
+                will-change: transform;
+                transition: .2s transform ease-in-out;
+
+                &:nth-child(1) {
+                    left: 2px;
+                    top: 50%;
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    left: 6px;
+                    top: 50%;
+                    transform: rotate(-45deg);
+                }
+
+            }
+
+            &.active {
+                div {
+                    &:nth-child(1) {
+                        transform: rotate(-45deg);
+                    }
+
+                    &:nth-child(2) {
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .site-content {
+        margin-left: 15px;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
+
+        .actions {
+            padding-right: 10px;
+
+            a {
+                font-size: 15px;
+                text-decoration: none;
+
+                .active {
+                    color: #47a447;
+                }
+
+                .inactive {
+                    color: #d53f3a;
+                }
+            }
+        }
+    }
+
+    .additional-structure {
+        width: 100%;
+    }
+}

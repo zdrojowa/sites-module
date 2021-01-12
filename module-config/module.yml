@@ -1,0 +1,7 @@
+name: SitesModule
+version: 1.0.0
+
+aclName: Menadżer treści
+aclAnchor: SitesModule
+
+routePrefix: SitesModule

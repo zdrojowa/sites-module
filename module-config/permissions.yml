@@ -1,0 +1,30 @@
+sites:
+  name: Strony
+  children:
+    add:
+      name: Dodawanie
+    edit:
+      name: Edytowanie
+    delete:
+      name: Usuwanie
+    translations:
+      name: Tłumaczenia stron
+content-type-group:
+  name: Grupy treści
+  children:
+    add:
+      name: Dodawanie
+    edit:
+      name: Edytowanie
+    delete:
+      name: Usuwanie
+
+site-types:
+  name: Rodzaje stron
+  children:
+    add:
+      name: Dodawanie
+    edit:
+      name: Edytowanie
+    delete:
+      name: Usuwanie

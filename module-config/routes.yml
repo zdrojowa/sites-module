@@ -1,0 +1,253 @@
+# POBIERANIE STRON #
+
+sites:
+  path: /dashboard/sites
+  controller: "{SiteController}@index"
+  methods:
+    - GET
+  permission: SitesModule.sites
+
+sites.create:
+  path: /dashboard/sites/create/step/1
+  controller: "{SiteController}@createFirstStep"
+  methods:
+    - GET
+  permission: SitesModule.sites.add
+
+sites.create.step-2:
+  path: /dashboard/sites/create/step/2
+  controller: "{SiteController}@createSecondStep"
+  methods:
+    - POST
+  permission: SitesModule.sites.add
+
+sites.store:
+  path: /dashboard/sites
+  controller: "{SiteController}@store"
+  methods:
+    - POST
+  permission: SitesModule.sites.add
+  middlewares:
+    - \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages
+
+sites.edit:
+  path: /dashboard/sites/{{site}}
+  controller: "{SiteController}@edit"
+  methods:
+    - GET
+  permission: SitesModule.sites.edit
+
+sites.edit.step-2:
+  path: /dashboard/sites/{{site}}/second-step
+  controller: "{SiteController}@editSecondStep"
+  methods:
+    - POST
+  permission: SitesModule.sites.edit
+
+sites.update:
+  path: /dashboard/sites/{{site}}
+  controller: "{SiteController}@update"
+  methods:
+    - POST
+  permission: SitesModule.sites.edit
+  middlewares:
+    - \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages
+
+sites.clone:
+  path: /dashboard/sites/{{site}}/clone
+  controller: "{SiteController}@clone"
+  methods:
+    - POST
+  permission: SitesModule.sites.translations
+
+sites.translations.checkMissing:
+  path: /dashboard/sites/{{site}}/missing-translations
+  controller: '{SiteController}@checkMissingTranslations'
+  methods:
+    - GET
+  permission: SitesModule.sites.translations
+
+sites.content-group-item.create:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/create
+  controller: "{SiteController}@createContentGroup"
+  methods:
+    - GET
+  permission: SitesModule.sites.add
+
+sites.content-group-item.store:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/create
+  controller: "{SiteController}@storeContentGroup"
+  methods:
+    - POST
+  permission: SitesModule.sites.add
+
+sites.visibility:
+  path: /dashboard/sites/{{site}}/visibility
+  controller: "{SiteController}@changeSiteVisibility"
+  methods:
+    - POST
+  permission: SitesModule.sites.add
+
+sites.content-group-item.edit:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/{contentGroupItemName}/edit
+  controller: "{SiteController}@editContentGroupItem"
+  methods:
+    - GET
+  permission: SitesModule.sites.add
+
+sites.content-group-item.update:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/{contentGroupItemName}
+  controller: "{SiteController}@updateContentGroupItem"
+  methods:
+    - PUT
+    - PATCH
+  permission: SitesModule.sites.add
+
+sites.content-group-item.visibility:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/{contentGroupItemName}/visibility
+  controller: "{SiteController}@changeContentGroupItemVisibility"
+  methods:
+    - POST
+  permission: SitesModule.sites.add
+
+sites.content-group.order:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/order
+  controller: "{SiteController}@changeContentGroupOrder"
+  methods:
+    - GET
+  permission: SitesModule.sites.add
+
+sites.content-group.order.update:
+  path: /dashboard/sites/{{site}}/content-group/{contentGroup}/{contentGroupName}/order
+  controller: "{SiteController}@updateContentGroupOrder"
+  methods:
+    - POST
+  permission: SitesModule.sites.add
+
+
+
+
+  # POBIERANIE STRON #
+
+# GRUPY TREŚCI #
+
+content-type-group.create:
+  path: /dashboard/content-groups/create
+  controller: "{ContentGroupController}@create"
+  methods:
+    - GET
+  permission: SitesModule.content-type-group.add
+
+content-type-group.store:
+  path: /dashboard/content-groups
+  controller: "{ContentGroupController}@store"
+  methods:
+    - POST
+  permission: SitesModule.content-type-group.add
+
+content-type-group:
+  path: /dashboard/content-groups
+  controller: "{ContentGroupController}@index"
+  methods:
+    - GET
+  permission: SitesModule.content-type-group
+
+content-type-group.ajax:
+  path: /dashboard/content-groups/ajax
+  controller: "{ContentGroupController}@ajax"
+  methods:
+    - POST
+  permission: SitesModule.content-type-group
+
+
+content-type-group.edit:
+  path: /dashboard/content-groups/{{contentGroup}}/edit
+  controller: "{ContentGroupController}@edit"
+  methods:
+    - GET
+  permission: SitesModule.content-type-group.edit
+
+content-type-group.update:
+  path: /dashboard/content-groups/{{contentGroup}}
+  controller: "{ContentGroupController}@update"
+  methods:
+    - PUT
+    - PATCH
+  permission: SitesModule.content-type-group.edit
+
+content-type-group.destroy:
+  path: /dashboard/content-groups/{{contentGroup}}
+  controller: "{ContentGroupController}@destroy"
+  methods:
+    - DELETE
+  permission: SitesModule.content-type-group.delete
+
+# GRUPY TREŚCI #
+
+# RODZAJE STRON #
+
+site-types:
+  path: /dashboard/site-types
+  controller: "{SiteTypeController}@index"
+  methods:
+    - GET
+  permission: SitesModule.content-type-group
+
+site-types.ajax:
+  path: /dashboard/site-types/ajax
+  controller: "{SiteTypeController}@ajax"
+  methods:
+    - POST
+  permission: SitesModule.content-type-group
+
+site-types.create:
+  path: /dashboard/site-types/create
+  controller: "{SiteTypeController}@create"
+  methods:
+    - GET
+  permission: SitesModule.content-type-group.add
+
+site-types.store:
+  path: /dashboard/site-types
+  controller: "{SiteTypeController}@store"
+  methods:
+    - POST
+  permission: SitesModule.content-type-group.add
+
+site-types.edit:
+  path: /dashboard/site-types/{{siteType}}/edit
+  controller: "{SiteTypeController}@edit"
+  methods:
+    - GET
+  permission: SitesModule.content-type-group.edit
+
+site-types.update:
+  path: /dashboard/site-types/{{siteType}}
+  controller: "{SiteTypeController}@update"
+  methods:
+    - PUT
+    - PATCH
+  permission: SitesModule.content-type-group.edit
+
+site-types.destroy:
+  path: /dashboard/site-types{{siteType}}
+  controller: "{SiteTypeController}@destroy"
+  methods:
+    - DELETE
+  permission: SitesModule.content-type-group.delete
+
+# RODZAJE STRON #
+
+
+
+site:
+  path: /{{slug}}
+  controller: "{SiteController}@site"
+  methods:
+    - GET
+  where:
+    slug: (.*)
+
+
+TEST:
+  path: /{{id}}/{test}
