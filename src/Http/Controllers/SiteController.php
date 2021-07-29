@@ -30,8 +30,11 @@ class SiteController extends Controller
     public function site(Request $request, Site $site, $slug = "/") {
 
         $slug = Str::start($slug, '/');
-        $site = $site->where('slug', $slug)->where('language_short_name', app()->getLocale())->where('active', true)->first();
+        $site = $site->where('slug', $slug)->where('active', true)->first();
         if (!$site) abort(404);
+
+        session()->put('locale', $site->language_short_name);
+        \App::setLocale($site->language_short_name);
 
         $content = [];
 

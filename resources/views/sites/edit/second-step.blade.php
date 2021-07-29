@@ -17,8 +17,6 @@
                             <input type="hidden" name="blade" value="{{$request['blade']}}">
                             <input type="hidden" name="site_type_id" value="{{$request['site_type_id']}}">
                             <input type="hidden" name="structure" value="{{$request['structure']}}">
-                            <input type="hidden" name="language_short_name" value="pl">
-                            <input type="hidden" name="parent_id">
 
                             {!! $form !!}
                             <div>
